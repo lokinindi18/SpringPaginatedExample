@@ -53,7 +53,7 @@
 
 			<resource>
 				<directory>src/main/resources/ebextensions</directory>
-				<targetPath>.ebextensions</targetPath>
+				<targetPath>/.ebextensions</targetPath>
 				<filtering>true</filtering>
 			</resource>
 
