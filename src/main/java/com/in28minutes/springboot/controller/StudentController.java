@@ -33,8 +33,6 @@ public class StudentController {
 	@Value("${spring.datasource.url}")
 	private String databaseUrl;
 	
-	@Value("${MYPARAMETER}")
-	private String MYPARAMETER;
 	
 	@Autowired
 	private StudentService studentService;
@@ -42,7 +40,6 @@ public class StudentController {
 	@GetMapping("/students/{studentId}/courses")
 	public List<Course> retrieveCoursesForStudent(@PathVariable String studentId) {
 		System.out.println("----> databaseUserName: " + databaseUserName + " , databasePassword: " + databasePassword + " , databaseUrl: " + databaseUrl);
-		System.out.println("----> MYPARAMETER: " + MYPARAMETER);
 		return studentService.retrieveCourses(studentId);
 	}
 	
