@@ -39,10 +39,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<!-- H2 Database -->
-		<!--dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency-->
+		<!--dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			</dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -51,6 +49,33 @@
 	</dependencies>
 
 	<build>
+		<resources>
+
+			<resource>
+				<directory>src/main/resources/ebextensions</directory>
+				<targetPath>.ebextensions</targetPath>
+				<filtering>true</filtering>
+			</resource>
+
+			<!-- Followed is copied from `spring-boot-starter-parent.pom` -->
+
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/application*.yml</include>
+					<include>**/application*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>**/application*.yml</exclude>
+					<exclude>**/application*.properties</exclude>
+				</excludes>
+			</resource>
+
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -58,7 +83,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
